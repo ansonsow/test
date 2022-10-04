@@ -76,3 +76,5 @@
 //   birthday: "11/25/0000",
   
 // });
+
+console.log("object");

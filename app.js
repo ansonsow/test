@@ -43,9 +43,6 @@ get(child(dbref, "a/"))
 })
 
 
-  set(ref(db, 'a/'),{
-    username: "aa",
-    email: "aa",
-  });
+
 
 
