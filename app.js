@@ -31,10 +31,15 @@ const db = getDatabase();
 
 const dbref = ref(db);
 
-get(child(dbref, "users/"))
+get(child(dbref, "users/test/username")) // edit this line
 .then((snapshot)=>{
   safsdf.innerHTML = snapshot.val();
 })
+
+// :)
+// "users" is users (DB column)
+// "test" is userName - of writeUserData()
+// "username" is name – of writeUserData
 
 function writeUserData(userName, name, email) {
   const db = getDatabase();
