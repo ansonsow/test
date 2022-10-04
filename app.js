@@ -5,16 +5,9 @@ import { initializeApp} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase
 import { getAnalytics} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-analytics.js'
 import {getDatabase, set, get, update, remove, ref, child} from 'https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js'
 
-var firebase = require('firebase');
-var firebaseui = require('firebaseui');
-var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
-ui.start('#firebaseui-auth-container', {
-  signInOptions: [
-    firebase.auth.EmailAuthProvider.PROVIDER_ID
-  ],
-  // Other config options...
-});
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -37,12 +30,18 @@ const db = getDatabase();
 
 const dbref = ref(db);
 
-get(child(dbref, "a/"))
+get(child(dbref, "email/"))
 .then((snapshot)=>{
   safsdf.innerHTML = snapshot.val();
 })
 
+function writeUserData(userId, name, email, imageUrl) {
+  const db = getDatabase();
+  set(ref(db), {
+    username: name,
+    email: email,
+    profile_picture : imageUrl
+  });
+}
 
-
-
-
+writeUserData(1,"b","a@a.com","www.a.com")
