@@ -43,13 +43,11 @@ get(child(dbref, "a/"))
 })
 
 
-function writeData(uid, name, email){
-  const reference = ref(db, 'user/'+uid);
-  set(reference,{
-    username: name,
-    email: email,
-  });
-  console.log("object");
-}
 
-writeData("jw1", "JasonWu", "jawu@gmail.com");
+  const reference = ;
+  set(ref(db, 'a/'),{
+    username: "aa",
+    email: "aa",
+  });
+
+
