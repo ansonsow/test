@@ -31,15 +31,15 @@ const db = getDatabase();
 
 const dbref = ref(db);
 
-get(child(dbref, "users/test/username")) // edit this line
+// reference DB structure:
+// https://media.discordapp.net/attachments/1019654199077773322/1026680643595276408/unknown.png
+
+// temporary test events/id: 1664847154304
+
+get(child(dbref, "events/1664847154304/description")) // edit this line
 .then((snapshot)=>{
   safsdf.innerHTML = snapshot.val();
 })
-
-// :)
-// "users" is users (DB column)
-// "test" is userName - of writeUserData()
-// "username" is name – of writeUserData
 
 function writeUserData(userName, name, email) {
   const db = getDatabase();
