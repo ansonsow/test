@@ -43,8 +43,6 @@ get(child(dbref, "a/"))
 })
 
 
-
-  const reference = ;
   set(ref(db, 'a/'),{
     username: "aa",
     email: "aa",
