@@ -14,13 +14,14 @@ import {getDatabase, set, get, update, remove, ref, child} from 'https://www.gst
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCh5FjgJFQVCOC-IqWSFx7R2uwMNagJkZQ",
-  authDomain: "test-8620d.firebaseapp.com",
-  databaseURL: "https://test-8620d-default-rtdb.firebaseio.com",
-  projectId: "test-8620d",
-  storageBucket: "test-8620d.appspot.com",
-  messagingSenderId: "392063023409",
-  appId: "1:392063023409:web:16e471ae622e55ce4a9810"
+  apiKey: "AIzaSyA35aDry2OtC2rifEFrkxWAyxBame5LPEw",
+  authDomain: "buddy-a478e.firebaseapp.com",
+  databaseURL: "https://buddy-a478e-default-rtdb.firebaseio.com",
+  projectId: "buddy-a478e",
+  storageBucket: "buddy-a478e.appspot.com",
+  messagingSenderId: "787425029798",
+  appId: "1:787425029798:web:8204439383fb651f954e67",
+  measurementId: "G-1MB486TXQ4"
 };
 
 // Initialize Firebase
@@ -30,18 +31,39 @@ const db = getDatabase();
 
 const dbref = ref(db);
 
-get(child(dbref, "email/"))
+get(child(dbref, "users/"))
 .then((snapshot)=>{
   safsdf.innerHTML = snapshot.val();
 })
 
-function writeUserData(userId, name, email, imageUrl) {
+function writeUserData(userName, name, email) {
   const db = getDatabase();
-  set(ref(db), {
+  set(ref(db, "users/"+ userName), {
     username: name,
     email: email,
-    profile_picture : imageUrl
+    
   });
 }
 
-writeUserData(1,"b","a@a.com","www.a.com")
+// writeUserData("test","test","test@test.com")
+
+
+const getTimeEpoch = () => {
+  return new Date().getTime().toString();                             
+}
+
+
+// dont know how to do date and time / location / photo yet
+function writeEventData(eId,name,number,price,description,userName){
+  const db = getDatabase();
+  set(ref(db, "events/"+eId),{
+    eventName: name,
+    number: number,
+    price: price,
+    description: description,
+    timeOfCreation: new Date(),
+    userName: userName,
+  })
+}
+
+// writeEventData(getTimeEpoch(),"testEvent",1,0,"hi this is test event","test");
